@@ -1,0 +1,17 @@
+#timer {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+#viewHighScore {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+html, body {
+    height: 100%;
+}
+.container {
+    margin: auto;
+    margin-top: 10%;
+}
