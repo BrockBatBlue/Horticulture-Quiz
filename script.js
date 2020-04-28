@@ -27,6 +27,9 @@ var viewHighScorePage = function(){
     var highScoreButton = document.getElementById("viewHighScore");
     highScoreButton.style.setProperty("display","none");
 }
+// Add on-click event for viewHighScore button
+var highScoreButton = document.getElementById("viewHighScore");
+highScoreButton.addEventListener("click", viewHighScorePage);
 
 
 
