@@ -12,12 +12,7 @@ var highScoreRecord = localStorage.getItem("highScores");
 // Function for View High Score Button Change Page
 var viewHighScorePage = function(){
     hideEverySection();
-   
-    // Select HighScore Section
-    var highScoreSection = document.getElementById("highScores");
-    
-    // Turn On HighScore Section
-    highScoreSection.style.display = null;
+    showElement("highScores");
     // Hide View High Score Button
     var highScoreButton = document.getElementById("viewHighScore");
     highScoreButton.style.setProperty("display","none");
@@ -35,6 +30,13 @@ var hideEverySection = function(){
     for(i=0; i<sectionArray.length; i++) {
         sectionArray[i].style.setProperty("display","none","important");
     }
+}
+// Show id element function
+var showElement = function(elementId) {
+    // Select Element by ID 
+    var element = document.getElementById(elementId);
+    // Turn On Element
+    element.style.display = null;
 }
 
 
