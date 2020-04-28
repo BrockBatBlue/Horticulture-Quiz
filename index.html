@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="timer">
+    <div id="timer" style="display: none">
         <button type="button" class="btn btn-warning">
             Time Left: <span>##</span> secs
         </button>
@@ -16,7 +16,7 @@
     <div id="viewHighScore">
         <button type="button" class="btn btn-info">View High Score</button>
     </div>
-    <div id="welcome" class="container d-flex flex-column justify-content-center align-items-center">
+    <section id="welcome" class="container d-flex flex-column justify-content-center align-items-center">
         <div class="row">
             <h1>Gardener's Plant Cuttings Quiz </h1>
         </div>
@@ -26,8 +26,8 @@
         <div class="row">
             <button type="button" class="btn btn-primary">START QUIZ</button>
         </div>                
-    </div>
-    <div id="question" class="container d-flex flex-column justify-content-center align-items-center">
+    </section>
+    <section id="question" style="display: none !important" class="container d-flex flex-column justify-content-center align-items-center">
         <div class="row">
             <h2> Question # </h2>
         </div>
@@ -38,8 +38,8 @@
             <button type="button" class="btn btn-primary">TRUE</button>
             <button type="button" class="btn btn-primary">FALSE</button>
         </div>             
-    </div>
-    <div id="initials" class="container d-flex flex-column justify-content-center align-items-center">
+    </section>
+    <section id="initials" style="display: none !important" class="container d-flex flex-column justify-content-center align-items-center">
         <div class="row">
             <h2> All done! </h2>
         </div>
@@ -59,7 +59,44 @@
                 </div>
             </form>
         </div>
-    </div>
+    </section>
+    <section id="highScores" style="display: none !important" class="container d-flex flex-column justify-content-center align-items-center">
+        <div class="row">
+            <h2> Highscores </h2>
+        </div>
+        <br>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Initials</th>
+                    <th scope="col">Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">aa</th>
+                    <td>##</td>
+                   
+                  </tr>
+                  <tr>
+                    <th scope="row">bb</th>
+                    <td>##</td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">cc</th>
+                    <td>##</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-primary">Go Back</button>
+            <button type="button" class="btn btn-primary">Clear Highscores</button>
+        </div>  
+        
+    </section>
     <script src="\script.js"></script>
 </body>
 </html>
