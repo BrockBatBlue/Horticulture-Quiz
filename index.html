@@ -3,27 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web APIs Quiz</title>
+    <title>Gardener's Plant Cuttings Quiz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="timer">
-        <button type="button" class="btn btn-warning">Time Left: <span>15:00</span></button>
+        <button type="button" class="btn btn-warning">
+            Time Left: <span>##</span> secs
+        </button>
     </div>
     <div id="viewHighScore">
         <button type="button" class="btn btn-info">View High Score</button>
     </div>
-    <div class="container align-self-center">
+    <div id="welcome" class="container d-flex flex-column justify-content-center align-items-center">
         <div class="row">
-            <h1>Coding Quiz Challenge </h1>
+            <h1>Gardener's Plant Cuttings Quiz </h1>
         </div>
         <div class="row">
-            <p>As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges.</p>
+            <p>As you proceed in your journey through the industrious applications of horticulture, you will encounter interesting problems you  must solve. Here is a multiple choice quiz to test your preparedness for such skills.</p>
         </div>
         <div class="row">
-            <button type="button" class="btn btn-primary">START</button>
+            <button type="button" class="btn btn-primary">START QUIZ</button>
         </div>                
+    </div>
+    <div id="question" class="container d-flex flex-column justify-content-center align-items-center">
+        <div class="row">
+            <h2> Question # </h2>
+        </div>
+        <div class="row">
+            <p>You always need to have growth hormone for your cuttings to produce roots.</p>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-primary">TRUE</button>
+            <button type="button" class="btn btn-primary">FALSE</button>
+        </div>             
+    </div>
+    <div id="initials" class="container d-flex flex-column justify-content-center align-items-center">
+        <div class="row">
+            <h2> All done! </h2>
+        </div>
+        <div class="row">
+            <p>Your final score is <span>#</span></p>
+        </div>
+        <div class="row">
+            <form>
+                <div class="form-row align-items-center">
+                  <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInput">Initials</label>
+                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Enter initials">
+                  </div>                  
+                  <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                  </div>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="\script.js"></script>
 </body>

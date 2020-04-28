@@ -10,8 +10,13 @@
 }
 html, body {
     height: 100%;
-}
+} 
 .container {
-    margin: auto;
-    margin-top: 10%;
+    height: 100%;
+    width: 95%;
+    max-width: 720px;
+    text-align: center;
+}
+.btn {
+    margin: 5px;
 }
