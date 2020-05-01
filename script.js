@@ -3,9 +3,9 @@ var score = 0;
 var timeLeft = 30;
 //[Question number, Question, Array of Answers, Index of Correct Answer]
 var questionArray = [
-    [1,'What is the answer?',[],0],
-    [2,'What is the answer?',[],0],
-    [3,'What is the answer?',[],0]
+    [1,"When do you need growth hormone for your cuttings to produce roots?",["Always","Sometimes","Certain Plants", "Never"],3],
+    [2,"What is the answer?",[],0],
+    [3,"What is the answer?",[],0]
 ]
 var highScoreRecord = localStorage.getItem("highScores");
 
@@ -41,13 +41,15 @@ var showElement = function(elementId) {
 
 var showQuestionPage = function(question){
     var questionElement = document.getElementById("question");
-    
     questionElement.children[0].children[0].innerText = "Question "+question[0];
-    
-    console.log(question);
-
-   showElement("question");
+    questionElement.children[1].children[0].innerText =  question[1];
+    questionElement.children[2].children[0].innerText = question[2][0];
+    questionElement.children[2].children[1].innerText = question[2][1];
+    questionElement.children[2].children[2].innerText = question[2][2];
+    questionElement.children[2].children[3].innerText = question[2][3]  
+    showElement("question");
 }
+
 
 // Function Start Quiz
 var startQuiz = function(){
