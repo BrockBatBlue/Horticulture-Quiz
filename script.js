@@ -1,6 +1,7 @@
 // variables
 var timeLeft = 100;
 var currentQuestion = 0;
+var timerInterval
 //[Question number, Question, Array of Answers, Index of Correct Answer]
 var questionArray = [
     [1,"When do you need growth hormone for your cuttings to produce roots?",["Always","Sometimes","Certain Plants", "Never"],3],
@@ -17,9 +18,6 @@ var viewHighScorePage = function(){
     var highScoreButton = document.getElementById("viewHighScore");
     highScoreButton.style.setProperty("display","none");
 }
-// Add on-click event for viewHighScore button
-var highScoreButton = document.getElementById("viewHighScore");
-highScoreButton.addEventListener("click", viewHighScorePage);
 
 // general/shared functions
 // Hide every section function
@@ -51,25 +49,22 @@ var showQuestionPage = function(question){
     currentQuestion = question[0];
 }
 
-
 // Function Start Quiz
 var startQuiz = function(){
-// must hide every section
+    // must hide every section
     hideEverySection();
-// show first question section
+    // show first question section
     showQuestionPage(questionArray[0]);
-//  Start Timer
+    //  Start Timer
     startTimer();
 }
-var startQuizButton = document.getElementById("startQuizButton");
-startQuizButton.addEventListener("click", startQuiz);
 
 // Start Timer
 var startTimer = function(){
     var timer = document.getElementById("timer")
     timer.children[0].children[0].innerText = timeLeft;
     showElement("timer");
-    var timerInterval = setInterval(function(){
+    timerInterval = setInterval(function(){
         timeLeft--;
         if(timeLeft < 0){
             timeLeft = 0
@@ -90,22 +85,47 @@ var nextQuestion = function(event){
         var lastQuestion = questionArray.length;
         // If it is the last question, then go to Initials page
         if(lastQuestion === currentQuestion){
-            // goToInitialsPage();
+            goToInitialsPage();
         } else {   
             // If not the last question, then go to next question
             hideEverySection();
             showQuestionPage(questionArray[currentQuestion]);         
-        }
-        
-        
+        }        
     } else {
         console.log("Incorrect");
         // If incorrect, then subtract seconds
         incorrectAnswer();
-    }
+    }    
+}
 
+
+var goToInitialsPage = function(){
+    hideEverySection();
+    var initialsPage = document.getElementById("initials");
+    initialsPage.children[1].children[0].children[0].innerText = timeLeft;
+    showElement("initials");
+    stopTimer();
+    var timer = document.getElementById("timer");
+    timer.children[0].children[0].innerText = timeLeft;
 
 }
+var stopTimer = function(){
+    clearInterval(timerInterval);
+}
+var correctAnswer = function(){
+    timeLeft += 5;
+}
+var incorrectAnswer = function(){
+    timeLeft -= 2;
+}
+// Event Listener Section:
+
+// viewHighScore button
+var highScoreButton = document.getElementById("viewHighScore");
+highScoreButton.addEventListener("click", viewHighScorePage);
+
+var startQuizButton = document.getElementById("startQuizButton");
+startQuizButton.addEventListener("click", startQuiz);
 
 // Answer EventListener
 var answerButton1 = document.getElementById("answerButton1");
@@ -119,12 +139,3 @@ answerButton3.addEventListener("click", nextQuestion);
 
 var answerButton4 = document.getElementById("answerButton4");
 answerButton4.addEventListener("click", nextQuestion);
-
-
-
-var correctAnswer = function(){
-    timeLeft += 5;
-}
-var incorrectAnswer = function(){
-    timeLeft -= 2;
-}
