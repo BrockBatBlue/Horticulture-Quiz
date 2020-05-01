@@ -8,8 +8,12 @@ var questionArray = [
     [2,"How long should you wait to check for rooting?",["Two Days","Two Weeks","Four Weeks","Two Months"],1],
     [3,"What is one way to check if the cutting has rooted before disturbing the soil?",["Check for new leaf growth","Check Soil Temperature","Check humidity","Check stem thickness"],0]
 ]
-var highScoreRecord = localStorage.getItem("highScores");
-
+if(localStorage.getItem("highScores") === null){
+    var highScoreRecord = [];
+}
+else{
+    var highScoreRecord = JSON.parse(localStorage.getItem("highScores"));
+}
 // Function for View High Score Button Change Page
 var viewHighScorePage = function(){
     hideEverySection();
@@ -17,6 +21,14 @@ var viewHighScorePage = function(){
     // Hide View High Score Button
     var highScoreButton = document.getElementById("viewHighScore");
     highScoreButton.style.setProperty("display","none");
+}
+// Submit to highScorePage
+var submitHighScore = function(){
+    var initials = document.getElementById("initials").children[2].children[0].children[0].children[1].value;
+    highScoreRecord.push([initials, timeLeft]);
+    localStorage.setItem("highScores",JSON.stringify(highScoreRecord));
+
+    viewHighScorePage();
 }
 
 // general/shared functions
@@ -119,6 +131,9 @@ var incorrectAnswer = function(){
     timeLeft -= 2;
 }
 // Event Listener Section:
+// Submit button
+var submitButton = document.getElementById("submitButton");
+submitButton.addEventListener("click", submitHighScore);
 
 // viewHighScore button
 var highScoreButton = document.getElementById("viewHighScore");
