@@ -80,7 +80,31 @@ var startTimer = function(){
 
 // Next Question Function
 var nextQuestion = function(event){
-    console.log(event.target.id);
+    var clickedAnswerIndex = event.target.id.substr(-1)-1;
+    // Differentiate the Correct and Incorrect Button Clicked
+    var correctAnswerIndex = questionArray[currentQuestion-1][3];
+    if(correctAnswerIndex === clickedAnswerIndex){
+        console.log("correct");
+        // If correct, then add seconds
+        correctAnswer();
+        var lastQuestion = questionArray.length;
+        // If it is the last question, then go to Initials page
+        if(lastQuestion === currentQuestion){
+            // goToInitialsPage();
+        } else {   
+            // If not the last question, then go to next question
+            hideEverySection();
+            showQuestionPage(questionArray[currentQuestion]);         
+        }
+        
+        
+    } else {
+        console.log("Incorrect");
+        // If incorrect, then subtract seconds
+        incorrectAnswer();
+    }
+
+
 }
 
 // Answer EventListener
