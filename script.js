@@ -1,6 +1,6 @@
 // variables
-var score = 0;
-var timeLeft = 30;
+var timeLeft = 100;
+var currentQuestion = 0;
 //[Question number, Question, Array of Answers, Index of Correct Answer]
 var questionArray = [
     [1,"When do you need growth hormone for your cuttings to produce roots?",["Always","Sometimes","Certain Plants", "Never"],3],
@@ -48,6 +48,7 @@ var showQuestionPage = function(question){
     questionElement.children[2].children[2].innerText = question[2][2];
     questionElement.children[2].children[3].innerText = question[2][3]  
     showElement("question");
+    currentQuestion = question[0];
 }
 
 
@@ -58,7 +59,24 @@ var startQuiz = function(){
 // show first question section
     showQuestionPage(questionArray[0]);
 //  Start Timer
-    // startTimer();
+    startTimer();
 }
 var startQuizButton = document.getElementById("startQuizButton");
 startQuizButton.addEventListener("click", startQuiz);
+
+// Start Timer
+var startTimer = function(){
+    var timer = document.getElementById("timer")
+    timer.children[0].children[0].innerText = timeLeft;
+    showElement("timer");
+    var timerInterval = setInterval(function(){
+        timeLeft--;
+        timer.children[0].children[0].innerText = timeLeft;
+    },1000)
+}
+var correctAnswer = function(){
+    timeLeft += 5;
+}
+var incorrectAnswer = function(){
+    timeLeft -= 2;
+}
