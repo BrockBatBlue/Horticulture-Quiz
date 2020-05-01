@@ -1,11 +1,11 @@
 // variables
 var score = 0;
 var timeLeft = 30;
+//[Question number, Question, Array of Answers, Index of Correct Answer]
 var questionArray = [
-    //[Question, Array of Answers, Index of Correct Answer]
-    ['What is the answer?',[],0]
-    ['What is the answer?',[],0]
-    ['What is the answer?',[],0]
+    [1,'What is the answer?',[],0],
+    [2,'What is the answer?',[],0],
+    [3,'What is the answer?',[],0]
 ]
 var highScoreRecord = localStorage.getItem("highScores");
 
@@ -39,6 +39,24 @@ var showElement = function(elementId) {
     element.style.display = null;
 }
 
+var showQuestionPage = function(question){
+    var questionElement = document.getElementById("question");
+    
+    questionElement.children[0].children[0].innerText = "Question "+question[0];
+    
+    console.log(question);
 
+   showElement("question");
+}
 
-// Function For moving from Start Page to Questions
+// Function Start Quiz
+var startQuiz = function(){
+// must hide every section
+    hideEverySection();
+// show first question section
+    showQuestionPage(questionArray[0]);
+//  Start Timer
+    // startTimer();
+}
+var startQuizButton = document.getElementById("startQuizButton");
+startQuizButton.addEventListener("click", startQuiz);
