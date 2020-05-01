@@ -4,8 +4,8 @@ var currentQuestion = 0;
 //[Question number, Question, Array of Answers, Index of Correct Answer]
 var questionArray = [
     [1,"When do you need growth hormone for your cuttings to produce roots?",["Always","Sometimes","Certain Plants", "Never"],3],
-    [2,"What is the answer?",[],0],
-    [3,"What is the answer?",[],0]
+    [2,"How long should you wait to check for rooting?",["Two Days","Two Weeks","Four Weeks","Two Months"],1],
+    [3,"What is one way to check if the cutting has rooted before disturbing the soil?",["Check for new leaf growth","Check Soil Temperature","Check humidity","Check stem thickness"],0]
 ]
 var highScoreRecord = localStorage.getItem("highScores");
 
@@ -71,9 +71,33 @@ var startTimer = function(){
     showElement("timer");
     var timerInterval = setInterval(function(){
         timeLeft--;
+        if(timeLeft < 0){
+            timeLeft = 0
+        }
         timer.children[0].children[0].innerText = timeLeft;
     },1000)
 }
+
+// Next Question Function
+var nextQuestion = function(event){
+    console.log(event.target.id);
+}
+
+// Answer EventListener
+var answerButton1 = document.getElementById("answerButton1");
+answerButton1.addEventListener("click", nextQuestion);
+
+var answerButton2 = document.getElementById("answerButton2");
+answerButton2.addEventListener("click", nextQuestion);
+
+var answerButton3 = document.getElementById("answerButton3");
+answerButton3.addEventListener("click", nextQuestion);
+
+var answerButton4 = document.getElementById("answerButton4");
+answerButton4.addEventListener("click", nextQuestion);
+
+
+
 var correctAnswer = function(){
     timeLeft += 5;
 }
