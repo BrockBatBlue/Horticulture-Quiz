@@ -14,6 +14,9 @@ if(localStorage.getItem("highScores") === null){
 else{
     var highScoreRecord = JSON.parse(localStorage.getItem("highScores"));
 }
+var clearHighScores = function(){
+    localStorage.setItem("highScores",JSON.stringify([]));
+}
 // Function for View High Score Button Change Page
 var viewHighScorePage = function(){
     hideEverySection();
@@ -131,6 +134,9 @@ var incorrectAnswer = function(){
     timeLeft -= 2;
 }
 // Event Listener Section:
+// Clear Highscores
+var clearHighScoresButton = document.getElementById("clearHighScoresButton");
+clearHighScoresButton.addEventListener("click", clearHighScores);
 // Submit button
 var submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", submitHighScore);
