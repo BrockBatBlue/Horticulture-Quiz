@@ -1,42 +1,17 @@
-# 04 Web APIs: Code Quiz
+# 04 Gardener's Plant Cuttings Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+This is homework week 4 with a functioning Gardener's Plant Cuttings Multiple Choice Quiz.
 
-## User Story
+It has a View High Scores Button leading to the High Scores page.
 
-```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+The timer appears and starts after START QUIZ is selected.
 
-## Acceptance Criteria
+The timer will remove a set number if the answer is wrong, and add a set number if the answer is correct.
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+The final question will lead to the initials page, where the user will submit his/her initials.
 
-The following animation demonstrates the application functionality:
+The initials submission leads to the View High Scores Page where the user can go back or clear all scores.
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+## Notes:
 
-### Review
-
-You are required to submit the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+This assignment proved exceedingly difficult, and lengthy. There are many other ways of solving this homework, but this is the one I used, and it may not be the most optimal method. 
