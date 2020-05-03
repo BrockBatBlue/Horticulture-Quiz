@@ -20,6 +20,25 @@ var clearHighScores = function(){
 // Function for View High Score Button Change Page
 var viewHighScorePage = function(){
     hideEverySection();
+    var highScoresTableBody = document.getElementById("highScores").children[2].children[0].children[1];
+    for(i=0; i<highScoreRecord.length; i++){
+        console.log(highScoreRecord[i]);
+        var leftColumn = document.createElement("th");
+        var rightColumn = document.createElement("td");
+        leftColumn.innerText = highScoreRecord[i][0];
+        leftColumn.setAttribute("scope","row");
+        rightColumn.innerText = highScoreRecord[i][1];
+        var tableRow = document.createElement("tr");
+        tableRow.appendChild(leftColumn);
+        tableRow.appendChild(rightColumn);
+        highScoresTableBody.appendChild(tableRow);
+    }
+
+
+    // var audioElement = document.createElement("audio");
+
+
+
     showElement("highScores");
     // Hide View High Score Button
     var highScoreButton = document.getElementById("viewHighScore");
