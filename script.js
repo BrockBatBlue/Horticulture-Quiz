@@ -16,11 +16,15 @@ else{
 }
 var clearHighScores = function(){
     localStorage.setItem("highScores",JSON.stringify([]));
+    highScoreRecord = [];
+    var highScoresTableBody = document.getElementById("highScores").children[2].children[0].children[1];
+    highScoresTableBody.innerHTML = ""
+    viewHighScorePage();
 }
 // Function for View High Score Button Change Page
 var viewHighScorePage = function(){
     hideEverySection();
-    var highScoresTableBody = document.getElementById("highScores").children[2].children[0].children[1];
+    var highScoresTableBody = document.getElementById("highScores").children[2].children[0].children[1];  
     for(i=0; i<highScoreRecord.length; i++){
         console.log(highScoreRecord[i]);
         var leftColumn = document.createElement("th");
@@ -33,11 +37,6 @@ var viewHighScorePage = function(){
         tableRow.appendChild(rightColumn);
         highScoresTableBody.appendChild(tableRow);
     }
-
-
-    // var audioElement = document.createElement("audio");
-
-
 
     showElement("highScores");
     // Hide View High Score Button
