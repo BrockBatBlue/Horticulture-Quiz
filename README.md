@@ -14,4 +14,8 @@ The initials submission leads to the View High Scores Page where the user can go
 
 ## Notes:
 
-This assignment proved exceedingly difficult, and lengthy. There are many other ways of solving this homework, but this is the one I used, and it may not be the most optimal method. 
+This assignment proved exceedingly difficult, and lengthy. There are many other ways of solving this homework, but this is the one I used, and it may not be the most optimal method.
+
+## Site Image
+
+![Horticulture Quiz](assets/horticultureQuizQuestionOne.jpg)
